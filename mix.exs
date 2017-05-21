@@ -16,7 +16,7 @@ defmodule ImageReddit.Mixfile do
   def application do
     # Specify extra applications you'll use from Erlang/Elixir
     [
-      extra_applications: [:logger, :httpoison, :quantum, :poison, :gen_stage],
+      extra_applications: [:logger],
       mod: {ImageReddit, []}
     ]
   end

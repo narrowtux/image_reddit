@@ -39,7 +39,6 @@ defmodule ImageReddit.Downloader do
     pending_downloads: pending
   }) do
     new_demand = demand + new_demand
-    Logger.info("New demand: #{new_demand}")
     {events, pending} = Enum.split(pending, new_demand)
     demand = new_demand - length(events)
     {:noreply, events, %{

@@ -6,7 +6,8 @@ config :image_reddit, ImageReddit.Updater,
   subreddits: ["spaceporn", "earthporn", "itookapicture"],
   output_dir: "/Users/tux/Pictures/reddit"
 
-config :image_reddit, ImageReddit.Scheduler,
-  jobs: [
-    {"*/15 * * * *", {ImageReddit, :update_all, []}}
+config :quantum, :your_app,
+  cron: [
+    {"*/15 * * * *", {ImageReddit.Updater, :update_all, []}},
+    {"@reboot", {ImageReddit.Updater, :update_all, []}}
   ]

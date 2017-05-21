@@ -9,7 +9,6 @@ defmodule ImageReddit do
     ] ++ for id <- 1..4 do
       worker(ImageReddit.Downloader.Worker, [], id: :"Elixir.ImageReddit.Downloader.Worker#{id}")
     end
-    IO.inspect children
 
     Supervisor.start_link(children, strategy: :one_for_one, name: ImageReddit.Supervisor)
   end
